@@ -1,4 +1,7 @@
 # TEA SERVICE
+![kermit](https://user-images.githubusercontent.com/69017022/163875163-11ab2a8a-2c6f-4c1e-ac0f-ba5ecb2c9816.jpeg)
+
+
 Exposes a Rails API for a Tea Subscription Service
 
 - An endpoint to subscribe a customer to a tea subscription
