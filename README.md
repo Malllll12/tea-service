@@ -32,33 +32,65 @@ On your local system, open a terminal session to run the following commands:
 
 ## Gems
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop) 
-- Testing: [rspec-rails](https://github.com/rspec/rspec-rails), [simplecov](https://github.com/simplecov-ruby/simplecov), [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails), [faker](https://github.com/vajradog/faker-rails), [webmock](https://github.com/bblimke/webmock), [vcr](https://github.com/vcr/vcr)
-
-- API: [faraday](https://github.com/lostisland/faraday), [figaro](https://medium.com/@MinimalGhost/the-figaro-gem-an-easier-way-to-securely-configure-rails-applications-c6f963b7e993)
+- Testing: [rspec-rails](https://github.com/rspec/rspec-rails), [simplecov](https://github.com/simplecov-ruby/simplecov), [pry](https://github.com/pry/pry), [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
+- Serializer: [jsonapi-serializer](https://github.com/fotinakis/jsonapi-serializers)
 ----------
 
+## Schema
+![Screen Shot 2022-04-19 at 3 26 32 PM](https://user-images.githubusercontent.com/69017022/164104719-57ffd4ba-f958-4499-9cc5-1110e3810fed.png)
+
+----------
 
 ## API
 
 ### All Subscriptions Endpoint
 | http verb | name | description | example |
 | --- | --- | --- | --- |
-| GET | /subscriptions | Returns all customer subscriptions, active and cancelled | /api/v1/subscriptions |
+| GET | /subscriptions | Returns all customer subscriptions, active and cancelled | /api/v1/subscriptions/2 |
 
 <details>
   <summary> JSON response examples </summary>
 
-  User:
 ```
 {
-    "data": {
-        "id": "324",
-        "type": "users",
-        "attributes": {
-            "email": "fake@example.com",
-            "api_key": "notarealkey"
+    "data": [
+        {
+            "id": "3",
+            "type": "subscription",
+            "attributes": {
+                "title": "Tea Party",
+                "price": 9.99,
+                "status": "active",
+                "frequency": 2,
+                "customer_id": 2,
+                "tea_id": 1
+            }
+        },
+        {
+            "id": "5",
+            "type": "subscription",
+            "attributes": {
+                "title": "Hello it's Tea",
+                "price": 39.99,
+                "status": "active",
+                "frequency": 3,
+                "customer_id": 2,
+                "tea_id": 3
+            }
+        },
+        {
+            "id": "2",
+            "type": "subscription",
+            "attributes": {
+                "title": "Is it Tea Your Looking For?",
+                "price": 39.99,
+                "status": "cancelled",
+                "frequency": 3,
+                "customer_id": 2,
+                "tea_id": 3
+            }
         }
-    }
+    ]
 }
   ```
 </details>
@@ -66,7 +98,7 @@ On your local system, open a terminal session to run the following commands:
 ### Create New Subscription
 | http verb | name | description | example |
 | --- | --- | --- | --- |
-| POST | /subscription | Creates a new subscription | /api/v1/subscription |
+| POST | /subscription | Creates a new subscription | /api/v1/subscriptions |
 
 <details>
   <summary> JSON response examples </summary>
@@ -75,11 +107,15 @@ On your local system, open a terminal session to run the following commands:
 ```
 {
     "data": {
-        "id": "324",
-        "type": "users",
+        "id": "5",
+        "type": "subscription",
         "attributes": {
-            "email": "fake@example.com",
-            "api_key": "notarealkey"
+            "title": "Hello it's Tea",
+            "price": 39.99,
+            "status": "active",
+            "frequency": 3,
+            "customer_id": 2,
+            "tea_id": 3
         }
     }
 }
@@ -89,7 +125,7 @@ On your local system, open a terminal session to run the following commands:
 ### Cancel subscription
 | http verb | name | description | example |
 | --- | --- | --- | --- |
-| PATCH | /subscription | cancels an existing subscription | /api/v1/subscription |
+| PATCH | /subscription | cancels an existing subscription | /api/v1/subscriptions/2 |
 
 <details>
   <summary> JSON response examples </summary>
@@ -98,16 +134,15 @@ On your local system, open a terminal session to run the following commands:
 ```
 {
     "data": {
-        "id": "null",
-        "type": "roadtrip",
+        "id": "2",
+        "type": "subscription",
         "attributes": {
-            "start_city": "Denver,CO",
-            "end_city": "Montrose,CO",
-            "travel_time": "04:44:25",
-            "weather_at_eta": {
-                "temperature": 31.59,
-                "conditions": "few clouds"
-            }
+            "title": "Is it Tea Your Looking For?",
+            "price": 39.99,
+            "status": "cancelled",
+            "frequency": 3,
+            "customer_id": 2,
+            "tea_id": 3
         }
     }
 }
