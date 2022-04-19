@@ -4,12 +4,6 @@ RSpec.describe 'Create a customer subscription' do
   before :each do
     @customer = Customer.create!(first_name: "Mallory", last_name: "Vining", email: "fake@email.com", address: "123 Here")
     @tea = Tea.create!(title: "Sleepy Time", description: "relaxing", temperature: 100, brew_time: 4)
-    @subscription = Subscription.create!(title: "Tea Party",
-      price: 29.99,
-      status: 0,
-      frequency: 4,
-      customer_id: @customer.id,
-      tea_id: @tea.id)
   end
 
   it 'creates a subscription' do
