@@ -1,4 +1,8 @@
 class Api::V1::SubscriptionsController < ApplicationController
+  def index
+    render json: SubscriptionSerializer.new(Subscription.where(customer_id: params[:customer_id]))
+  end
+  
   def create
     subscription = Subscription.create(subscription_params)
     if subscription.save
@@ -14,7 +18,7 @@ class Api::V1::SubscriptionsController < ApplicationController
       render json: SubscriptionSerializer.new(subscription)
     else
       render json: { error: { details: "This subscription cannot be cancelled"} }, status: 400
-    end  
+    end
   end
 
   private
