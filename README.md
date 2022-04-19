@@ -31,7 +31,6 @@ On your local system, open a terminal session to run the following commands:
 ----------
 
 ## Gems
-[![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop) 
 - Testing: [rspec-rails](https://github.com/rspec/rspec-rails), [simplecov](https://github.com/simplecov-ruby/simplecov), [pry](https://github.com/pry/pry), [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
 - Serializer: [jsonapi-serializer](https://github.com/fotinakis/jsonapi-serializers)
 ----------
