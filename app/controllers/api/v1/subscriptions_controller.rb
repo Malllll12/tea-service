@@ -8,6 +8,15 @@ class Api::V1::SubscriptionsController < ApplicationController
     end
   end
 
+  def update
+    subscription = Subscription.update(params[:id], subscription_params)
+    if subscription.save
+      render json: SubscriptionSerializer.new(subscription)
+    else
+      render json: { error: { details: "This subscription cannot be cancelled"} }, status: 400
+    end  
+  end
+
   private
 
   def subscription_params
