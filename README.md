@@ -52,7 +52,7 @@ On your local system, open a terminal session to run the following commands:
 ### All Subscriptions Endpoint
 | http verb | name | description | example |
 | --- | --- | --- | --- |
-| GET | /subscriptions | Returns all customer subscriptions, active and cancelled | /api/v1/subscriptions/2 |
+| GET | /subscriptions | Returns all customer subscriptions, active and cancelled | /api/v1/subscriptions/:customer_id |
 
 <details>
   <summary> JSON response examples </summary>
@@ -131,7 +131,7 @@ On your local system, open a terminal session to run the following commands:
 ### Cancel subscription
 | http verb | name | description | example |
 | --- | --- | --- | --- |
-| PATCH | /subscription | cancels an existing subscription | /api/v1/subscriptions/1 |
+| PATCH | /subscription | cancels an existing subscription | /api/v1/subscriptions/:subscription_id |
 
 <details>
   <summary> JSON response examples </summary>
