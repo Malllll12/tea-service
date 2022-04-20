@@ -40,6 +40,13 @@ On your local system, open a terminal session to run the following commands:
 
 ----------
 
+## Postman
+
+- To run in postman start up `rails s`
+ 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8b29a2a07c82043e0935?action=collection%2Fimport)
+
+----------
 ## API
 
 ### All Subscriptions Endpoint
