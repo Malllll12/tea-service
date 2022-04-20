@@ -131,7 +131,7 @@ On your local system, open a terminal session to run the following commands:
 ### Cancel subscription
 | http verb | name | description | example |
 | --- | --- | --- | --- |
-| PATCH | /subscription | cancels an existing subscription | /api/v1/subscriptions/2 |
+| PATCH | /subscription | cancels an existing subscription | /api/v1/subscriptions/1 |
 
 <details>
   <summary> JSON response examples </summary>
