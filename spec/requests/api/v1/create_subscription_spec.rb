@@ -8,11 +8,11 @@ RSpec.describe 'Create a customer subscription' do
 
   it 'creates a subscription' do
     info = { title: "Tea for Two",
-                            price: 19.99,
-                            status: 0,
-                            frequency: 3,
-                            customer_id: @customer.id,
-                            tea_id: @tea.id
+             price: 19.99,
+             status: 0,
+             frequency: 3,
+             customer_id: @customer.id,
+             tea_id: @tea.id
                           }
     post "/api/v1/subscriptions", params: info, as: :json
 
