@@ -19,7 +19,7 @@ RSpec.describe 'Create a customer subscription' do
     expect(response).to be_successful
     expect(response.status).to eq(201)
 
-    parsed = JSON.parse(response.body, symbolize_names: true)#[:data]
+    parsed = JSON.parse(response.body, symbolize_names: true)[:data]
 
     expect(parsed).to be_a(Hash)
     expect(parsed[:type]).to eq("subscription")
